@@ -1,0 +1,10 @@
+{
+  "name": "prototype",
+  "description": "Build a throwaway prototype to answer a design question.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Matt Pocock",
+    "url": "https://github.com/mattpocock/skills"
+  },
+  "repository": "https://gitlab.beissbarth.cloud/wega2/bb_ai_marketplace"
+}

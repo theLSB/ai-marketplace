@@ -1,0 +1,5 @@
+interface:
+  display_name: "Quest"
+  short_description: "Route planning work to grilling or wayfinder"
+policy:
+  allow_implicit_invocation: false

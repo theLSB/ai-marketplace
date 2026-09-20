@@ -1,0 +1,5 @@
+interface:
+  display_name: "Handoff check"
+  short_description: "Work out whether to keep this session going, compact it, or hand it off"
+policy:
+  allow_implicit_invocation: false

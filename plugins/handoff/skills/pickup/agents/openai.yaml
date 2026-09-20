@@ -1,0 +1,5 @@
+interface:
+  display_name: "Pickup"
+  short_description: "Pick up an earlier session's work from a handoff document"
+policy:
+  allow_implicit_invocation: false

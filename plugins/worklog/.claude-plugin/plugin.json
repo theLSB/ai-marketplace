@@ -1,0 +1,11 @@
+{
+  "name": "worklog",
+  "description": "Session work logs: record what a session did, then compile reports from the logs.",
+  "version": "1.7.0",
+  "author": {
+    "name": "Daniel Kish",
+    "email": "daniel.kish@beissbarth.com"
+  },
+  "repository": "https://gitlab.beissbarth.cloud/wega2/bb_ai_marketplace",
+  "license": "UNLICENSED"
+}

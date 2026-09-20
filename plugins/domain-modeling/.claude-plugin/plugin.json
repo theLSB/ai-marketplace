@@ -1,0 +1,10 @@
+{
+  "name": "domain-modeling",
+  "description": "Build and sharpen a project's domain model.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Matt Pocock",
+    "url": "https://github.com/mattpocock/skills"
+  },
+  "repository": "https://gitlab.beissbarth.cloud/wega2/bb_ai_marketplace"
+}

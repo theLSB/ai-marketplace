@@ -1,0 +1,11 @@
+{
+  "name": "wayfinder",
+  "description": "Chart a large effort as a map of decision tickets, and work them one at a time.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Matt Pocock",
+    "url": "https://github.com/mattpocock/skills"
+  },
+  "repository": "https://gitlab.beissbarth.cloud/wega2/bb_ai_marketplace",
+  "dependencies": ["grilling", "domain-modeling", "research", "prototype"]
+}

@@ -1,0 +1,64 @@
+{
+  "name": "bb-ai-marketplace",
+  "description": "Claude Code skills and agents authored in the department.",
+  "owner": {
+    "name": "Daniel Kish",
+    "email": "daniel.kish@beissbarth.com"
+  },
+  "plugins": [
+    {
+      "name": "swarm",
+      "description": "Boss/worker/checker orchestration: run a task through a multi-agent team with independent verification.",
+      "version": "1.0.0",
+      "source": "./plugins/swarm"
+    },
+    {
+      "name": "worklog",
+      "description": "Session work logs: record what a session did, then compile reports from the logs.",
+      "version": "1.7.0",
+      "source": "./plugins/worklog"
+    },
+    {
+      "name": "handoff",
+      "description": "Hand a conversation off to a later session, and pick one up again.",
+      "version": "2.2.0",
+      "source": "./plugins/handoff"
+    },
+    {
+      "name": "grilling",
+      "description": "Grill a plan, decision, or idea until the goal behind it is understood.",
+      "version": "1.0.0",
+      "source": "./plugins/grilling"
+    },
+    {
+      "name": "domain-modeling",
+      "description": "Build and sharpen a project's domain model.",
+      "version": "1.0.0",
+      "source": "./plugins/domain-modeling"
+    },
+    {
+      "name": "research",
+      "description": "Investigate a question against primary sources and capture it in the repo.",
+      "version": "1.0.0",
+      "source": "./plugins/research"
+    },
+    {
+      "name": "prototype",
+      "description": "Build a throwaway prototype to answer a design question.",
+      "version": "1.0.0",
+      "source": "./plugins/prototype"
+    },
+    {
+      "name": "wayfinder",
+      "description": "Chart a large effort as a map of decision tickets, and work them one at a time.",
+      "version": "1.0.0",
+      "source": "./plugins/wayfinder"
+    },
+    {
+      "name": "quest",
+      "description": "One entry point for planning work: routes to grilling or wayfinder.",
+      "version": "1.0.0",
+      "source": "./plugins/quest"
+    }
+  ]
+}

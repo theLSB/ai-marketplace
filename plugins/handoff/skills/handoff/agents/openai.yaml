@@ -1,0 +1,5 @@
+interface:
+  display_name: "Handoff"
+  short_description: "Hand off to a background agent, or a file, to allow a future agent to pick it up"
+policy:
+  allow_implicit_invocation: false

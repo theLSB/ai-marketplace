@@ -1,0 +1,10 @@
+{
+  "name": "research",
+  "description": "Investigate a question against primary sources and capture it in the repo.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Matt Pocock",
+    "url": "https://github.com/mattpocock/skills"
+  },
+  "repository": "https://gitlab.beissbarth.cloud/wega2/bb_ai_marketplace"
+}

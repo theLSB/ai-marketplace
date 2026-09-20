@@ -1,0 +1,10 @@
+{
+  "name": "grilling",
+  "description": "Grill a plan, decision, or idea until the goal behind it is understood.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Matt Pocock",
+    "url": "https://github.com/mattpocock/skills"
+  },
+  "repository": "https://gitlab.beissbarth.cloud/wega2/bb_ai_marketplace"
+}

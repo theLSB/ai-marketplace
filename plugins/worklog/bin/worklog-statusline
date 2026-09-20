@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+"""Entry point for the cost status line. Claude Code puts this plugin's bin/ on PATH."""
+
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+
+from worklog.statusline import main
+
+raise SystemExit(main())

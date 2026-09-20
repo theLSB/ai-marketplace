@@ -1,0 +1,11 @@
+{
+  "name": "swarm",
+  "description": "Boss/worker/checker orchestration: run a task through a multi-agent team with independent verification.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Daniel Kish",
+    "email": "daniel.kish@beissbarth.com"
+  },
+  "repository": "https://gitlab.beissbarth.cloud/wega2/bb_ai_marketplace",
+  "license": "UNLICENSED"
+}

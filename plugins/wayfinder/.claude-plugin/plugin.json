@@ -6,6 +6,6 @@
     "name": "Matt Pocock",
     "url": "https://github.com/mattpocock/skills"
   },
-  "repository": "https://gitlab.beissbarth.cloud/wega2/bb_ai_marketplace",
+  "repository": "https://github.com/theLSB/ai-marketplace",
   "dependencies": ["grilling", "domain-modeling", "research", "prototype"]
 }

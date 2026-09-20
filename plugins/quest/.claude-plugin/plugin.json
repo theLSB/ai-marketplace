@@ -6,7 +6,7 @@
     "name": "Daniel Kish",
     "email": "daniel.kish@beissbarth.com"
   },
-  "repository": "https://gitlab.beissbarth.cloud/wega2/bb_ai_marketplace",
+  "repository": "https://github.com/theLSB/ai-marketplace",
   "license": "UNLICENSED",
   "dependencies": [
     "grilling",

@@ -1,4 +1,4 @@
-# bb_ai_marketplace
+# ai-marketplace
 
 A Claude Code plugin marketplace for the skills and agents we author ourselves. It is one
 marketplace among however many you have added - adding it does not disturb `superpowers`,
@@ -26,51 +26,9 @@ The last five come from [`mattpocock/skills`](https://github.com/mattpocock/skil
 
 # Part 1 - Using the plugins
 
-Steps 1 to 4 are in the order they have to happen. What follows them is reference.
+Steps 1 to 3 are in the order they have to happen. What follows them is reference.
 
-## 1. Get access to the repo
-
-The marketplace is a **private** GitLab project, `wega2/bb_ai_marketplace` on
-`gitlab.beissbarth.cloud`, and Claude Code installs it by cloning. Read access is the only
-real prerequisite, and without it the command fails as a git error rather than a plugin
-error.
-
-Ask an owner for read access (Reporter or above) on
-[`wega2/bb_ai_marketplace`](https://gitlab.beissbarth.cloud/wega2/bb_ai_marketplace), then
-give git a way in - Claude Code clones with your own git config and keys, having no
-credentials of its own.
-
-**With SSH**, the simplest path: add your key under
-[Preferences - SSH Keys](https://gitlab.beissbarth.cloud/-/user_settings/ssh_keys) and
-check it. A list of refs is the whole test.
-
-```bash
-git ls-remote git@gitlab.beissbarth.cloud:wega2/bb_ai_marketplace.git
-```
-
-**With a token**, where a key is not an option - a shared machine, a locked-down laptop.
-Create a **personal access token** with the **`read_repository`** scope at
-[Preferences - Access Tokens](https://gitlab.beissbarth.cloud/-/user_settings/personal_access_tokens),
-then hand it to git once, running `git config --global credential.helper store` first if
-that is not already set:
-
-```bash
-printf 'protocol=https\nhost=gitlab.beissbarth.cloud\nusername=oauth2\npassword=<your-token>\n\n' \
-  | git credential approve
-```
-
-The username is literally `oauth2`; the token is the password. Then use the HTTPS URL,
-`https://gitlab.beissbarth.cloud/wega2/bb_ai_marketplace.git`, everywhere the SSH one
-appears below. On a shared or build machine prefer a project **deploy token** of the same
-scope over your personal one, with its own username in place of `oauth2`. An expired token
-shows up as installs and updates failing to authenticate, and nothing else.
-
-**Keep the token out of the URL.** Claude Code records the source you give it verbatim in
-`~/.claude/plugins/known_marketplaces.json` and in `settings.json`, so a
-`https://oauth2:<token>@...` URL leaves the token in plaintext in two files people copy
-between machines. The credential store keeps it out of both.
-
-## 2. Possible name conflicts with existing skills
+## 1. Possible name conflicts with existing skills
 
 Skill names resolve across every source, highest first:
 **enterprise > `~/.claude/skills` > project `.claude/skills` > plugin**. A copy of one of
@@ -88,18 +46,18 @@ ls ~/.claude/skills ~/.claude/agents
 Anything on that list which has the same name as skill from the marketplace will shadow the marketplace skill.
 
 
-## 3. Install
+## 2. Install
 
 First, register the marketplace:
 ```bash
-claude plugin marketplace add git@gitlab.beissbarth.cloud:wega2/bb_ai_marketplace.git
+claude plugin marketplace add theLSB/ai-marketplace
 ```
 Then install with:
 ```bash
-claude plugin install swarm@bb-ai-marketplace
-claude plugin install worklog@bb-ai-marketplace
-claude plugin install handoff@bb-ai-marketplace
-claude plugin install quest@bb-ai-marketplace
+claude plugin install swarm@ai-marketplace
+claude plugin install worklog@ai-marketplace
+claude plugin install handoff@ai-marketplace
+claude plugin install quest@ai-marketplace
 ```
 
 `The quest` plugin declares five skills as dependencies, so installing it alone brings in
@@ -110,14 +68,14 @@ those directly only if you want it without the rest.
 
 Restart Claude Code afterwards. A running session does not pick up a new plugin.
 
-Pin to a tag or branch by appending a ref: `...bb_ai_marketplace.git#worklog--v1.0.0`.
+Pin to a tag or branch by appending a ref: `theLSB/ai-marketplace#worklog--v1.0.0`.
 
-## 4. Update
+## 3. Update
 
 ### By hand
 
 ```bash
-claude plugin marketplace update bb-ai-marketplace   # refresh the catalogue
+claude plugin marketplace update ai-marketplace   # refresh the catalogue
 claude plugin update worklog                         # then update each plugin
 ```
 
@@ -127,7 +85,7 @@ claude plugin update worklog                         # then update each plugin
 - `claude plugin list` shows what version you have. No command tells you a newer one
   exists; `git ls-remote --tags <repo>` lists what has been released.
 - Each version installs alongside the last, under
-  `~/.claude/plugins/cache/bb-ai-marketplace/<plugin>/<version>/`.
+  `~/.claude/plugins/cache/ai-marketplace/<plugin>/<version>/`.
 
 ### Automatically
 
@@ -136,16 +94,16 @@ the session you are already in, so nothing needs restarting. **It is off until y
 on**, and the switch sits in your machine's registration of the marketplace rather than in
 anything we publish - it is yours to set, and we cannot set it for you.
 
-Run `/plugin`, select `bb-ai-marketplace`, choose **Enable auto-update**. The same row
+Run `/plugin`, select `ai-marketplace`, choose **Enable auto-update**. The same row
 reads **Disable auto-update** once it is on. The equivalent in `~/.claude/settings.json`,
 beside the marketplace's `source`:
 
 ```json
 "extraKnownMarketplaces": {
-  "bb-ai-marketplace": {
+  "ai-marketplace": {
     "source": {
-      "source": "git",
-      "url": "git@gitlab.beissbarth.cloud:wega2/bb_ai_marketplace.git"
+      "source": "github",
+      "repo": "theLSB/ai-marketplace"
     },
     "autoUpdate": true
   }
@@ -217,7 +175,7 @@ Instead write a shim once, at `~/.claude/bin/worklog-statusline`:
 # Run the newest installed worklog status line.
 set -u
 
-newest=$(ls -d "$HOME"/.claude/plugins/cache/bb-ai-marketplace/worklog/*/bin/worklog-statusline 2>/dev/null \
+newest=$(ls -d "$HOME"/.claude/plugins/cache/ai-marketplace/worklog/*/bin/worklog-statusline 2>/dev/null \
          | sort -V | tail -1)
 [ -n "$newest" ] && [ -x "$newest" ] || exit 0
 exec "$newest" "$@"
@@ -307,8 +265,8 @@ Add the working copy as a marketplace and install from it:
 
 ```bash
 claude plugin marketplace add ./            # `.` alone is rejected; use ./ or a full path
-claude plugin install <name>@bb-ai-marketplace
-claude plugin details <name>@bb-ai-marketplace
+claude plugin install <name>@ai-marketplace
+claude plugin details <name>@ai-marketplace
 ```
 
 `details` prints the component inventory and the projected token cost - always-on cost is
@@ -323,7 +281,7 @@ cd plugins/worklog && python3 -m pytest lib/worklog/tests -q
 Tests must not depend on the day they run. `worklog` derives a session's date from its
 transcript's mtime, so the fixtures pin that mtime rather than asserting today's date.
 
-There is no CI - `claude` cannot run on our GitLab or Jenkins, so validation is local. Run
+There is no CI, so validation is local. Run
 `claude plugin validate . --strict` before you commit; a pre-commit hook is the place for
 it.
 
